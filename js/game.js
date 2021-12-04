@@ -10,14 +10,15 @@ const chances = document.getElementById('chances')
 const gameOver = document.getElementById('game-over')
 const gameWrapper = document.getElementById('game-wrapper')
 const newGame = document.getElementById('new-game')
-let chancesLeft = 3
+const gameScore = document.getElementById('score')
+let score = 0
+let chancesLeft = 5
 chances.innerHTML = chancesLeft
 
-// Run 3 times
+// Run 5 times
 
 function discountChances() {
   chancesLeft = chancesLeft - 1
-  console.log(chancesLeft)
   chances.innerHTML = chancesLeft
   toggle()
 }
@@ -39,6 +40,8 @@ rock.addEventListener('click', function (e) {
     result.innerHTML = 'OOps you lose'
   } else if (computer == 'Scissors' || computer == 'Lizard') {
     result.innerHTML = 'Yeeeh you won'
+    score = score + 1
+    gameScore.innerHTML = score
   }
   computer_choice.innerHTML = computer
   discountChances()
@@ -53,6 +56,8 @@ paper.addEventListener('click', function (e) {
     result.innerHTML = 'OOps you lose'
   } else if (computer === 'Rock' || computer == 'Spock') {
     result.innerHTML = 'Yeeeh you won'
+    score = score + 1
+    gameScore.innerHTML = score
   }
   computer_choice.innerHTML = computer
   discountChances()
@@ -67,6 +72,8 @@ scissors.addEventListener('click', function (e) {
     result.innerHTML = 'OOps you lose'
   } else if (computer === 'Paper' || computer == 'Lizard') {
     result.innerHTML = 'Yeeeh you won'
+    score = score + 1
+    gameScore.innerHTML = score
   }
   computer_choice.innerHTML = computer
   discountChances()
@@ -81,6 +88,8 @@ lizard.addEventListener('click', function (e) {
     result.innerHTML = 'OOps you lose'
   } else if (computer === 'Paper' || computer == 'Spock') {
     result.innerHTML = 'Yeeeh you won'
+    score = score + 1
+    gameScore.innerHTML = score
   }
   computer_choice.innerHTML = computer
   discountChances()
@@ -95,6 +104,8 @@ spock.addEventListener('click', function (e) {
     result.innerHTML = 'OOps you lose'
   } else if (computer === 'Rock' || computer == 'Rock') {
     result.innerHTML = 'Yeeeh you won'
+    score = score + 1
+    gameScore.innerHTML = score
   }
   computer_choice.innerHTML = computer
   discountChances()
@@ -103,8 +114,12 @@ spock.addEventListener('click', function (e) {
 newGame.addEventListener('click', function () {
   gameOver.style.display = 'none'
   gameWrapper.style.display = 'block'
-  chancesLeft = 3
-  chances.innerHTML = 3
+  score = 0
+  chancesLeft = 5
+  chances.innerHTML = 5
+  computer_choice.innerHTML = ' '
+  your_choice.innerHTML = ' '
+  result.innerHTML = ' '
 })
 
 //get computer choice

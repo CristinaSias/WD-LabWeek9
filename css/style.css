@@ -73,7 +73,7 @@ body {
 #computer-choice {
   color: #c9db2f;
 }
-#chances {
+#chances, #score {
   width: fit-content;
   align-items: center;
   margin: auto;
